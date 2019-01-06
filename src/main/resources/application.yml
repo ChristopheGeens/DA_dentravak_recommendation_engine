@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: recommendation
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+        healthCheckPath: /recommendation/health-check
+        healthCheckInterval: 20s
+server:
+  port: 8081
+  servlet:
+    context-path: /recommendation
